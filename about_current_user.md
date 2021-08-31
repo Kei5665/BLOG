@@ -44,7 +44,7 @@ end
 たぶんですが、session、basic_auth、cookieなどのことですかね？書いてあるし。
 
 ここでCookieについて少し調べます
-## Cookieについて
+### Cookieについて
 Webにおいてユーザーデータの管理を実現させる方法の一つがCookieというもの。
 
 例えばcookieについては[Web技術の基本](https://www.amazon.co.jp/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E5%9B%B3%E8%A7%A3%E5%BC%8F-%E3%81%93%E3%81%AE%E4%B8%80%E5%86%8A%E3%81%A7%E5%85%A8%E9%83%A8%E3%82%8F%E3%81%8B%E3%82%8BWeb%E6%8A%80%E8%A1%93%E3%81%AE%E5%9F%BA%E6%9C%AC-%E5%B0%8F%E6%9E%97-%E6%81%AD%E5%B9%B3-ebook/dp/B06XNMMC9S/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=3IEP55SMC7TBE&dchild=1&keywords=web%E6%8A%80%E8%A1%93%E3%81%AE%E5%9F%BA%E6%9C%AC&qid=1630415768&sprefix=web%E6%8A%80%E8%A1%93%E3%81%AE%2Caps%2C316&sr=8-1)にはこう書いてあります
@@ -78,7 +78,7 @@ HTTPは一連のやり取りの状態を保てない。だから状態を保た�
         @current_user
     end
 ```
-`login_from_session``login_from_other_sources`を詳しくみてみるとこんな感じ
+`login_from_session`と`login_from_other_sources`を詳しくみてみるとこんな感じ
 
 ```
     def login_from_other_sources
@@ -107,21 +107,22 @@ HTTPは一連のやり取りの状態を保てない。だから状態を保た�
 
 ここで自分なりに憶測を立ててみます
 1. `user_class`っていうのは自分で定義するUserモデルのこと
-2. `login_from_session`はセッションに保存されているuser_idのユーザーの情報をUserモデルから探して、@current_userに入れている
+2. `login_from_session`は、もしセッションの中にuser_idがあるなら、同じuser_idのユーザーをUserモデルから探して、@current_userに格納
 3. `login_from_other_sources`は定義されたソースがcookieじゃない場合に、その別のソースを引っ張ってきて返している。
 
 一応こんな感じだと思うのですが…違うかも(^^;
 
 ## 2. 見つかった場合はログインしたユーザーを、見つからない場合はnilを返す
-これはもうそのまんまですね。
+これはもうそのまんまですね。先ほどの説明と重複しますが、
 
 `login_from_session`でユーザーが見つかったら@current_userへ格納
 
-もし見つからず、`login_from_other_sources`でユーザーが見つかったら@current_userへ格納
+もし見つからず、`login_from_other_sources`でユーザー（？）が見つかったら@current_userへ格納
+
+見つからない場合は＠current_userにnillを格納。
 
 そして@current_userを返す。
 
-見つからない場合はnillを返す。
 
 以上です。
 
