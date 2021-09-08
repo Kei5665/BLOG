@@ -3,7 +3,7 @@
 - [APIとは？初心者向けに分かりやすく解説します。](https://products.sint.co.jp/topsic/blog/api)
 - APIを、簡単に説明すると「決まった方法でアクセスをすれば決まった結果を返してくれるもの」。決まった形式でアクセスを受け付けて、仕様通りの結果を返すインターフェースとなるのがAPI。
 
-#### Roads API
+### Roads API
 [Snap to Roads  \|  Roads API  \|  Google Developers](https://developers.google.com/maps/documentation/roads/snap#maps_http_roads_snaptoroads_interpolation-txt)
 Roads APIは、ルートに沿って収集された最大100個のGPSポイントを受け取り、車両が走行していた可能性の高い道路にポイントがスナップされた同様のデータセットを返します。オプションとして、ポイントの補間を要求することができ、道路の形状に沿った滑らかなパスを得ることができます。
 
