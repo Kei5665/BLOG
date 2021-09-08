@@ -76,5 +76,5 @@ https://roads.googleapis.com/v1/snapToRoads?interpolate=false&key=AIzaSyDC4lRXp8
 - originalIndex
 元のリクエストの対応する値を示す整数です。リクエストの各値は、レスポンスの対応する値にマッピングする必要があります。
 
-#### 今日の残った疑問
+#### 残った疑問
 このレスポンスをどうやって扱うの？
