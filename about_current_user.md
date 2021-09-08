@@ -1,4 +1,4 @@
-# Sorceryのメソッドたちを頑張って細かくみてみた。
+# Sorceryのcurrent_userを細かくみてみた。
 Railsで認証機能を作るときに便利なsorceryというgem
 
 ヘルパーメソッドがいくつかあり、それについてGithubでは
